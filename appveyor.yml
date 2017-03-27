@@ -25,7 +25,10 @@ before_build:
   - npm --version
 
 build_script:
+  - npm run mkpkg
+  - npm run configure
   - npm run build
+  - npm run package
 
 cache:
   - node_modules -> package.json

@@ -2,11 +2,18 @@
   "name": "@winapi/file-dialog",
   "version": "0.0.1",
   "description": "IFileOpenDialog/IFileSaveDialog wrapper",
-  "main": "lib/winapi_file_dialog.node",
+  "main": "index.js",
+  "files": [
+    "mkurl.js"
+  ],
   "scripts": {
     "prepublish": "npm ls",
-    "install": "node-pre-gyp install",
-    "build": "node-pre-gyp configure build package",
+    "install": "for /f usebackq %U in (`node mkurl.js`) do npm i %U",
+    "mkpkg": "node mkpkg.js",
+    "configure": "node-pre-gyp configure",
+    "build": "node-pre-gyp build",
+    "rebuild": "node-pre-gyp rebuild",
+    "package": "node-pre-gyp package",
     "release": "node-pre-gyp-github publish --release"
   },
   "author": "Ishi Ruy <dev@nhz.io>",
@@ -15,15 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/nhz-io/winapi-file-dialog.git"
   },
-  "dependencies": {
-    "node-pre-gyp": "^0.6.34"
-  },
   "os": [
     "win32"
   ],
   "binary": {
     "module_name": "winapi_file_dialog",
-    "module_path": "lib",
+    "module_path": "package",
     "host": "https://github.com/nhz-io/winapi-file-dialog/releases/download/",
     "remote_path": "v{version}"
   },
@@ -35,6 +39,7 @@
   "devDependencies": {
     "nan": "^2.5.1",
     "node-gyp": "^3.6.0",
+    "node-pre-gyp": "^0.6.34",
     "node-pre-gyp-github": "^1.3.1"
   }
 }
