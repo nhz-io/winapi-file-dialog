@@ -1,6 +1,6 @@
 {
   "name": "@winapi/file-dialog",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "IFileOpenDialog/IFileSaveDialog wrapper",
   "main": "lib/winapi_file_dialog.node",
   "scripts": {
