@@ -1,1 +1,1 @@
-module.exports = require('@winapi/installer-bin');
+module.exports = require('@winapi/file-dialog-bin');
